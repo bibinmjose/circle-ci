@@ -11,9 +11,13 @@ jobs:
     - image: circleci/node:13.8.0
     steps:
       - run: echo "Hello"
+      - run: echo "This is pipeline ID << pipeline.id >>"
+      - run: echo $CIRCLE_COMPARE_URL
   print_world:
     docker:
       - image: circleci/node:13.8.0
+    environment:
+      CIRCLE_COMPARE_URL: << pipeline.project.git_url >>/compare/<< pipeline.git.base_revision >>..<<pipeline.git.revision>>
     steps:
       - run: echo "World"
 # Orchestrate or schedule a set of jobs
