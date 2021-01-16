@@ -15,7 +15,7 @@ jobs:
       - run: echo "Hello"
       - run: echo "This is pipeline ID << pipeline.id >>"
       - run: echo $CIRCLE_COMPARE_URL
-      - run: echo "My username is ${CIRCLE_PR_USERNAME}"
+      - run: echo "My username is ${CIRCLE_PROJECT_USERNAME}"
   print_world:
     docker:
       - image: circleci/node:13.8.0
